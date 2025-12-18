@@ -7,6 +7,7 @@ from teams.news_weather_team import news_weather_team
 agent_os = AgentOS(
     agents=[normal_agent,calculate_agent],
     teams=[news_weather_team],
+    workflows=[],
 )
 
 app = agent_os.get_app()
