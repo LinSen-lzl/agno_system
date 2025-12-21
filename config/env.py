@@ -20,8 +20,13 @@ BASE_URL = os.getenv("BASE_URL")
 MAX_TOKENS = int(os.getenv("MAX_TOKENS", 256))
 TEMPERATURE = float(os.getenv("TEMPERATURE", 0.3))
 
+VECTOR_DB_URL = os.getenv("VECTOR_DB_URL")
+VECTOR_DB_COLLECTION = os.getenv("VECTOR_DB_COLLECTION")
+VECTOR_DB_TOKEN = os.getenv("VECTOR_DB_TOKEN")
+
 # ===== API KEY（仅远程需要）=====
 API_KEY = os.getenv("API_KEY")
+EMBEDDING_API_KEY = os.getenv("EMBEDDING_API_KEY")
 
 # ===== 校验逻辑 =====
 if not LLM_PROVIDER:
@@ -43,5 +48,12 @@ LLM_CONFIG = {
     "base_url": BASE_URL,
     "api_key": API_KEY,
     "max_tokens": MAX_TOKENS,
-    "temperature": TEMPERATURE
+    "temperature": TEMPERATURE,
+}
+
+DB_CONFIG = {
+    "vector_db_url":VECTOR_DB_URL,
+    "vector_db_collection":VECTOR_DB_COLLECTION,
+    "token":VECTOR_DB_TOKEN,
+    "embedding_api_key":EMBEDDING_API_KEY,
 }
