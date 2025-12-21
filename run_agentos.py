@@ -5,6 +5,7 @@ from agents.router_agent import router_agent
 from agents.qa_agent import qa_agent
 from teams.news_weather_team import news_weather_team
 from workflows.doc_summary_workflow import doc_summary_workflow
+from workflows.write_article_workflow import write_article_workflow
 from api.upload import upload_router
 from api.workflow_calling import wc_router
 
@@ -12,7 +13,7 @@ from api.workflow_calling import wc_router
 agent_os = AgentOS(
     agents=[normal_agent,calculate_agent,router_agent,qa_agent],
     teams=[news_weather_team],
-    workflows=[doc_summary_workflow],
+    workflows=[doc_summary_workflow,write_article_workflow],
 )
 
 app = agent_os.get_app()

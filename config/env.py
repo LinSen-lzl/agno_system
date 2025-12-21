@@ -27,6 +27,8 @@ VECTOR_DB_TOKEN = os.getenv("VECTOR_DB_TOKEN")
 # ===== API KEY（仅远程需要）=====
 API_KEY = os.getenv("API_KEY")
 EMBEDDING_API_KEY = os.getenv("EMBEDDING_API_KEY")
+EMBEDDING_URL = os.getenv("EMBEDDING_URL")
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
 
 # ===== 校验逻辑 =====
 if not LLM_PROVIDER:
@@ -56,4 +58,7 @@ DB_CONFIG = {
     "vector_db_collection":VECTOR_DB_COLLECTION,
     "token":VECTOR_DB_TOKEN,
     "embedding_api_key":EMBEDDING_API_KEY,
+    "embedding_url":EMBEDDING_URL,
+    "embedding_model":EMBEDDING_MODEL,
 }
+

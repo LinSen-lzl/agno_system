@@ -8,5 +8,5 @@ news_agent = Agent(
     role="新闻播报员",
     model=create_llm(),
     instructions="你是一个专业的新闻播报 AI 助手，收集并播报全球范围内的新闻",
-    tools=[BaiduSearchTools],
+    tools=[BaiduSearchTools()],
 )

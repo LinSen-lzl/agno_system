@@ -1,19 +1,19 @@
-from agno.workflow import Workflow
-from agents.doc_agent import doc_agent
+from agno.workflow import Step, Workflow, StepInput, StepOutput
 from agents.extract_agent import extract_agent
 from agents.summary_agent import summary_agent
+
+# 读取文档步骤
+def read_file_step(step_input: StepInput) -> StepOutput:
+    """读取上传文件的内容"""
+    file_content = step_input.input  # 这里 input 是二进制内容
+    text = file_content.decode("utf-8", errors="ignore")
+    return StepOutput(content=text)
 
 doc_summary_workflow = Workflow(
     name="文档分析总结工作流",
     steps=[
-        {"name": "读取PDF",
-         "agent": doc_agent,
-         "task": lambda file_path: doc_agent.run(file_path)},
-        {"name": "信息抽取",
-         "agent": extract_agent,
-         "task": lambda text: extract_agent.run(text)},
-        {"name": "总结",
-         "agent": summary_agent,
-         "task": lambda text: summary_agent.run(text)},
+        Step(name="读取文件内容", executor=read_file_step),
+        Step(name="提取关键词", agent=extract_agent),
+        Step(name="总结输出", agent=summary_agent),
     ]
 )

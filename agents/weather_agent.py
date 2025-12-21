@@ -8,6 +8,6 @@ weather_agent = Agent(
     role="天气预报播报员",
     model=create_llm(),
     instructions="你是一个专业的天气预报播报 AI 助手，收集并播报全球范围内前后7天的天气预报",
-    tools=[BaiduSearchTools],
+    tools=[BaiduSearchTools()],
 )
 
