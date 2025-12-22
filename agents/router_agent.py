@@ -1,5 +1,6 @@
 from agno.agent import Agent
-from models.llm import create_llm
+from models.deepseek_llm import deepseek_llm
+
 from workflows.doc_summary_workflow import doc_summary_workflow
 import re
 
@@ -20,6 +21,6 @@ router_agent = Agent(
         请直接使用工具调用文档分析工作流程。
         否则，正常聊天。
         """,
-    model=create_llm(),
+    model=deepseek_llm(),
     tools=[route],
 )

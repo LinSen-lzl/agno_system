@@ -1,5 +1,5 @@
 from agno.agent import Agent
-from models.llm import create_llm
+from models.deepseek_llm import deepseek_llm
 from tools.calculate_tool import add_tool
 from tools.calculate_tool import multiply_tool
 from tools.calculate_tool import divide_tool
@@ -7,7 +7,7 @@ from tools.calculate_tool import divide_tool
 # 数学计算专用agent
 calculate_agent = Agent(
     name="数学计算Agent",
-    model=create_llm(),
+    model=deepseek_llm(),
     tools=[add_tool, multiply_tool, divide_tool],
     instructions="""
     你只能使用提供的工具进行数学运算。
